@@ -24,3 +24,6 @@ robots_products = robots_list.findAll('div', {'class':'item-container'})
 # getting robot data
 robot_title = robots_products[0].find('div', {'class':'item-info'}).find('a', {'class':'item-title'}).text
 print(robot_title)
+
+robot_brand = robots_products[0].div.div.a.img['title']
+print(robot_brand)
