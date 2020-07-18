@@ -27,3 +27,6 @@ print(robot_title)
 
 robot_brand = robots_products[0].div.div.a.img['title']
 print(robot_brand)
+
+robot_shipping_price = robots_products[0].find('li', {'class':'price-ship'}).text
+print(robot_shipping_price)
