@@ -21,12 +21,19 @@ robots_parser = soup(robots_resources, 'html.parser')
 robots_list = robots_parser.find('div', {'class':'list-wrap'})
 robots_products = robots_list.findAll('div', {'class':'item-container'})
 
-# getting robot data
-robot_title = robots_products[0].find('div', {'class':'item-info'}).find('a', {'class':'item-title'}).text
-print(robot_title)
+# loop through all robots products
+for robot in robots_products:
+    try:
+        robot_title = robot.find('div', {'class': 'item-info'}).find('a', {'class': 'item-title'}).text
+    except:
+        robot_title = None
 
-robot_brand = robots_products[0].div.div.a.img['title']
-print(robot_brand)
+    try:
+        robot_brand = robot.div.div.a.img['title']
+    except:
+        robot_brand = None
 
-robot_shipping_price = robots_products[0].find('li', {'class':'price-ship'}).text
-print(robot_shipping_price)
+    try:
+        robot_shipping_price = robot.find('li', {'class': 'price-ship'}).text
+    except:
+        robot_shipping_price = None
